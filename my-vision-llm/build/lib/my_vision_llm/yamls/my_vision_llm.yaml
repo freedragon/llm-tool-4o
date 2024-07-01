@@ -1,0 +1,13 @@
+my_vision_llm.tools.my_vision_llm.my_vision_tool:
+  function: my_vision_tool
+  inputs:
+    connection:
+      type:
+      - CustomConnection
+    input_text:
+      type:
+      - string
+  module: my_vision_llm.tools.my_vision_llm
+  name: Hello World Tool
+  description: This is hello world tool
+  type: python
