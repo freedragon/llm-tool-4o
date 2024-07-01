@@ -1,6 +1,26 @@
 # llm-tool-4o
 AI Studio PromptFlow custom tool sample
 
+python promptflow/scripts/tool/generate_tool_package_template.py --destination my-vision-llm --package-name my-vision-llm --tool-name my-vision-llm --function-name my-vision-tool
+
+ 
+```
+(pf-tools) freedragon@yonghp-030221:~/work/pf-tools/prompty-qs/my-vision-llm$ twine upload --repository testpypi dist/* 
+Uploading distributions to https://test.pypi.org/legacy/ 
+Uploading my_vision_llm-0.0.1-py3-none-any.whl 
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 kB • 00:00 • ? 
+Uploading my_vision_llm-0.0.1.tar.gz 
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 kB • 00:00 • ? 
+View at: 
+https://test.pypi.org/project/my-vision-llm/0.0.1/ 
+(pf-tools) freedragon@yonghp-030221:~/work/pf-tools/prompty-qs/my-vision-llm$ 
+```
+
+How to Create and Upload Your First Python Package to PyPI (freecodecamp.org) 
+
+pip install --index-url https://test.pypi.org/simple/ --no-deps basicpkg 
+
+ 
 https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/customize_an_llm_tool.html
 
 How to Create and Upload Your First Python Package to PyPI (freecodecamp.org) 
