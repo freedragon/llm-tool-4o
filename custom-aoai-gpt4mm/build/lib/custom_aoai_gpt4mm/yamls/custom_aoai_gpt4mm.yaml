@@ -1,0 +1,72 @@
+custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm.custom_aoai_gpt4mm:
+  name: Azure OpenAI GPT-4 Models with Vision Capabilities (Vision Preview, Turbo with Vision and Omni)
+  description: Use Azure OpenAI GPT-4 Turbo with Vision to leverage AOAI vision ability.
+  type: custom_llm
+  module: custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm
+  class_name: AzureOpenAIMM
+  tool_state: preview
+  # function: custom_aoai_gpt4mm
+  function: chat
+  tool_state: preview
+  icon: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACR0lEQVR4nKWS3UuTcRTHP79nm9ujM+fccqFGI5viRRpjJgkJ3hiCENVN/QMWdBHUVRdBNwX9ARHd2FVEWFLRjaS9XPmSC/EFTNOWc3Pi48y9PHNzz68L7UXTCvreHM65+PA953uElFLyHzLvHMwsJrnzfJqFeAan3cKV9mr8XseeAOXX5vqjSS53jdF+tIz1nIFAMDCzwpvJ5b87+LSYYHw+gcWkEAwluXnOR2Q1R+9YjJ7BKJG4zoXmqr0ddL3+QnV5EeUOK821LsJammcjEeZiafJScrd3bm8H6zkDd4mVztZKAK49/Mj8is4Z/35GPq9R5VJ5GYztDtB1HT1vovGQSiqVAqDugI3I6jpP3i9x9VQVfu8+1N/OvbWCqqqoBSa6h1fQNA1N0xiYTWJSBCZF8HgwSjQapbRQ2RUg5NYj3O6ZochmYkFL03S4mImIzjFvCf2xS5gtCRYXWvBUvKXjyEVeTN/DXuDgxsnuzSMK4HTAw1Q0hZba4NXEKp0tbpq9VkxCwTAETrsVwxBIBIYhMPI7YqyrtONQzSznJXrO4H5/GJ9LUGg0YFYydJxoYnwpj1s9SEN5KzZz4fYYAW6dr+VsowdFgamlPE/Hs8SzQZYzg0S+zjIc6iOWDDEc6uND+N12B9/VVu+mrd79o38wFCCdTeBSK6hxBii1eahxBlAtRbsDdmoiHGRNj1NZ7GM0NISvzM9oaIhiqwOO/wMgl4FsRpLf2KxGXpLNSLLInzH+CWBIA6RECIGUEiEUpDRACBSh8A3pXfGWdXfMgAAAAABJRU5ErkJggg==
+  default_prompt: |
+    # system:
+    As an AI assistant, your task involves interpreting images and responding to questions about the image.
+    Remember to provide accurate answers based on the information present in the image.
+
+    # user:
+    Can you tell me what the image depicts?
+    ![image]({{image_input}})
+  inputs:
+    connection:
+      type:
+        - AzureOpenAIConnection
+    deployment_name:
+      type:
+        - string
+      enabled_by: connection
+      dynamic_list:
+        func_path: custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm.list_deployment_names
+        func_kwargs:
+        - name: connection
+          type:
+          - AzureOpenAIConnection
+          reference: ${inputs.connection}
+      allow_manual_entry: true
+      is_multi_select: false
+    temperature:
+      default: 1
+      type:
+        - double
+    top_p:
+      default: 1
+      type:
+        - double
+    max_tokens:
+      default: 512
+      type:
+        - int
+    stop:
+      default: ""
+      type:
+        - list
+    presence_penalty:
+      default: 0
+      type:
+        - double
+    frequency_penalty:
+      default: 0
+      type:
+        - double
+    seed:
+      default: ""
+      type:
+        - int
+    detail:
+      enum:
+      - low
+      - high
+      - auto
+      type:
+        - string
+      default: auto

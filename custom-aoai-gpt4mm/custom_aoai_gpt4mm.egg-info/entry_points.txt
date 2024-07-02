@@ -1,0 +1,2 @@
+[package_tools]
+custom_aoai_gpt4mm = custom_aoai_gpt4mm.tools.utils:list_package_tools
