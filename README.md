@@ -65,14 +65,16 @@ pytest tests
 ```bash
 python setup.py sdist bdist_wheel
 ```
-9. 실제 PyPi에 dist 폴더의 내용을 업로드 해 볼 수 도 있겠습니다만, 
+9. 실제 PyPi에 dist 폴더의 내용을 업로드 해 볼 수 도 있겠습니다만, 우선 테스트를 위해서 test.pypi.org에 계정을 만들고 업로드 및 설치 테스트를 해 볼 수 있습니다. 사용법과 구조는 거의 동일 하지만, 공식적인 사이트와 테스트 사이트가 제종 됩니다.
+패키지 업로드 명령과 다음과 같습니다. 위에서 설치한 twine 명령을 사용 합니다.
 ```bash
 twine upload --repository testpypi dist/* 
-Uploading distributions to https://test.pypi.org/legacy/ 
 ```
+아래 문서도 참고 하세요.
 
 [How to Create and Upload Your First Python Package to PyPI (freecodecamp.org)](https://www.freecodecamp.org/news/how-to-create-and-upload-your-first-python-package-to-pypi/)
 
+다음은 실제 실행 결과 샘플 입니다.
 ```bash
 (pf-tools) freedragon@yonghp-030221:~/work/pf-tools/prompty-qs/my-vision-llm$ twine upload --repository testpypi dist/* 
 Uploading distributions to https://test.pypi.org/legacy/ 
@@ -84,6 +86,7 @@ View at:
 https://test.pypi.org/project/my-vision-llm/0.0.1/ 
 (pf-tools) freedragon@yonghp-030221:~/work/pf-tools/prompty-qs/my-vision-llm$ 
 ```
+test.pypi.org에 업로드 된 패키지 설치 방법은 아래와 같습니다. 패키지 이름이 custom-tool-pkg로 가정한 샘플 입니다.
 
 ```bash
 pip install --index-url https://test.pypi.org/simple/ --no-deps custom-tool-pkg 
