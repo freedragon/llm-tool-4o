@@ -34,7 +34,7 @@ git clone https://github.com/microsoft/promptflow.git
 ```bash
 python D:\proj\github\promptflow\scripts\tool\generate_tool_package_template.py --destination hello-world-proj --package-name hello-world --tool-name hello_world_tool --function-name get_greeting_messagename>
 ```
-6. 생성 된 폴더의 구조는 대략 다음과 같습니다. 주로 변경이 필요한 부분은 <pre>hello_world_tool.py</pre>, <pre>hello_world_tool.yaml</pre>와 <pre>test_hello_world_tool.py</pre> 파일들입니다만, 소스코드나 설정등이 변경 되면 <pre>setup.py</pre> 파일의 버젼 역시 변경을 해 주어야 빌드된 패키지 파일의 업로드 및 설치이 용이 해 집니다.
+6. 생성 된 폴더의 구조는 대략 다음과 같습니다. 주로 변경이 필요한 부분은 ```hello_world_tool.py```, ```hello_world_tool.yaml```와 ```test_hello_world_tool.py``` 파일들입니다만, 소스코드나 설정등이 변경 되면 ```setup.py``` 파일의 버젼 역시 변경을 해 주어야 빌드된 패키지 파일의 업로드 및 설치이 용이 해 집니다.
 
 ```markdown
 hello-world-proj/    
@@ -56,11 +56,11 @@ hello-world-proj/
 │    
 └── setup.py  
 ```
-7. 코드의 유닛테스트 가 필요한 경우 <pre>test_hello_world_tool.py</pre>을 업데이트 하고 아래 명령을 수행 합니다. (프로젝트 폴더에서 실행 되어야 합니다.
+7. 코드의 유닛테스트 가 필요한 경우 ```test_hello_world_tool.py```을 업데이트 하고 아래 명령을 수행 합니다. (프로젝트 폴더에서 실행 되어야 합니다.
 ```bash
 pytest tests
 ```
-8. 배포가 준비 된 상태에서 아래 명령을 프로젝트 폴더에서 수행 하면 <pre>dist</pre> 폴더가 생성 되고, 휠(WHL) 파일과 Tar.gz파일이 생성 됩니다. 패키지의 업로드는 별도의 명령을 사용 합니다.
+8. 배포가 준비 된 상태에서 아래 명령을 프로젝트 폴더에서 수행 하면 ```dist``` 폴더가 생성 되고, 휠(WHL) 파일과 Tar.gz파일이 생성 됩니다. 패키지의 업로드는 별도의 명령을 사용 합니다.
 ```bash
 python setup.py sdist bdist_wheel
 ```
