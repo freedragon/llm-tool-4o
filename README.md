@@ -140,7 +140,10 @@ https://pypi.org/project/custom-aoai-gpt4mm/0.0.5/
 
 ![requirements.txt 수장 방법 (AI Studio)](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/media/how-to-custom-tool-package-creation-and-usage/install-package-on-compute-session.png?view=azureml-api-2)
 
-이 방식의 문제점은 툴을 사용하는 모든 플로우를 위해서 폴더에 requirements.txt 파일을 저장해야 하고, 프로젝트나 툴의 종류가 많아지면 관리할 곳이 많아지는 문제등이 있겠습니다.
+[스튜디오 흐름 페이지에서 컴퓨팅 세션 업데이트](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/how-to-manage-compute-session?view=azureml-api-2&tabs=cli#update-a-compute-session-on-the-studio-flow-page)
+![AI Studio에서 파일 추가](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/media/how-to-manage-compute-session/update-compute-session.png?view=azureml-api-2)
+
+이 방식의 문제점은 툴을 사용하는 모든 플로우를 위해서 폴더에 requirements.txt 파일을 저장해야 하고, 프로젝트나 툴의 종류가 많아지면 관리할 곳이 많아지는 문제등이 있겠습니다. 툴이 많지 않거나 테스트 목적에 맞을 걸로 보입니다.
 
 #### 플로우가 실행 되는 도커 이미지에 추가 하는 방법
 
