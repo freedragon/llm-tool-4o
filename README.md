@@ -72,6 +72,9 @@ python setup.py sdist bdist_wheel
 
 9. 실제 PyPi에 dist 폴더의 내용을 업로드 해 볼 수 도 있겠습니다만, 우선 테스트를 위해서 test.pypi.org에 계정을 만들고 업로드 및 설치 테스트를 해 볼 수 있습니다. 사용법과 구조는 거의 동일 하지만, 공식적인 사이트와 테스트 사이트가 제종 됩니다.
 패키지 업로드 명령과 다음과 같습니다. 위에서 설치한 twine 명령을 사용 합니다.
+```bash
+twine upload --repository testpypi dist/* 
+```
 
 > [!NOTE]  
 > 무료 입니다만, www.pypi.org 및 test.pypi.org에 계정 생성, 계정 인증 (이메일), 키 백업 및 다중 인증이 끝나야 API Key를 만들고 실제 패키지 업로드를 실행할 수 있습니다.
@@ -86,9 +89,6 @@ python setup.py sdist bdist_wheel
 >   password = pypi-AgENdG...
 > ```
 
-```bash
-twine upload --repository testpypi dist/* 
-```
 아래 문서도 참고 하세요.
 
 [How to Create and Upload Your First Python Package to PyPI (freecodecamp.org)](https://www.freecodecamp.org/news/how-to-create-and-upload-your-first-python-package-to-pypi/)
