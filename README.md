@@ -111,6 +111,21 @@ test.pypi.org에 업로드 된 패키지 설치 방법은 아래와 같습니다
 pip install --index-url https://test.pypi.org/simple/ --no-deps custom-tool-pkg 
 ```
 
+10. Release가 가능한 버젼은 ```twine upload dist/*```명령으로 바로 [www.pypi.org](https://pypi.org/project/custom-aoai-gpt4mm/0.0.5/) 에서 확인 할 수 있습니다.
+
+```bash
+(pf-tools) freedragon@yonghp-030221:~/work/pf-tools/llm-tool-4o/custom-aoai-gpt4mm$ twine upload dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Uploading custom_aoai_gpt4mm-0.0.5-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 kB • 00:00 • 51.3 MB/s
+Uploading custom_aoai_gpt4mm-0.0.5.tar.gz
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 kB • 00:00 • 24.9 MB/s
+
+View at:
+https://pypi.org/project/custom-aoai-gpt4mm/0.0.5/
+(pf-tools) freedragon@yonghp-030221:~/work/pf-tools/llm-tool-4o/custom-aoai-gpt4mm$
+```
+
 ### 제작한 툴을 AI Studio에서 리스트 되고 사용 가능 하도록 하는 방법
 
 아래 문서에서 새로 만들어진 도구들을 AI Studio 나 VS Code를 이용해서 설정 및 테스트 하는 방법등에 대해 설명하고 있습니다.
