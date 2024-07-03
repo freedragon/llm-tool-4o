@@ -5,11 +5,12 @@ AI Studio PromptFlow custom tool sample
 python promptflow/scripts/tool/generate_tool_package_template.py --destination my-vision-llm --package-name my-vision-llm --tool-name my-vision-llm --function-name my-vision-tool
 ```
 
-* Promptflow에서 사용할 수 있는  Custom Tool을 제작하는데 필요한 정보를 정리한 리포 입니다. Azure OpenAI GPT-4V Preview툴을 변경한 커스텀 툴의 소스 코드는 아래 URL을 참고 하세요. (리포 아래 서브 폴더)
-https://github.com/freedragon/llm-tool-4o/tree/master/custom-aoai-gpt4mm 
-* LLM툴을 커스터 마이징 하는 방법은 아래 문서를 우선 참고 하세요.
+* Promptflow에서 사용할 수 있는  Custom Tool을 제작하는데 필요한 정보를 정리한 리포 입니다. Azure OpenAI GPT-4V Preview툴을 변경한 커스텀 툴의 소스 코드는 아래 URL을 참고 하세요. (리포 아래 서브 폴더)  
+    https://github.com/freedragon/llm-tool-4o/tree/master/custom-aoai-gpt4mm 
+* LLM툴을 커스터 마이징 하는 방법은 아래 문서를 우선 참고 하세요.  
+    [Create and Use Tool Package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html)
 
-[Create and Use Tool Package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html)
+커스텀 툴 제작을 위한 순서는 대략 다음과 같습니다:
 
 1. 아나콘다 또는 파이썬 가상환경 등의 방식으로 개발 환경을 우선 셋팅 했다고 보고,
 2. Custom Tool을 제작하는데 사용 되는 주요 패키지들을 설치 합니다.
