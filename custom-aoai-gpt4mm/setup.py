@@ -4,7 +4,7 @@ PACKAGE_NAME = "custom_aoai_gpt4mm"
 
 setup(
     name=PACKAGE_NAME,
-    version="0.0.1",
+    version="0.0.5",
     description="Custom Azure OpenAI Multi-Model support LLM tool.",
     packages=find_packages(),
     entry_points={

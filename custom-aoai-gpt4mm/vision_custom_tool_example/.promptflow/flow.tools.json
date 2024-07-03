@@ -1,0 +1,256 @@
+{
+  "package": {
+    "custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm.custom_aoai_gpt4mm": {
+      "name": "AOAI Custom Vison Tool",
+      "description": "Use Azure OpenAI GPT-4 Turbo with Vision to leverage AOAI vision ability.",
+      "type": "custom_llm",
+      "module": "custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm",
+      "class_name": "AzureOpenAIMM",
+      "tool_state": "preview",
+      "function": "chat",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACR0lEQVR4nKWS3UuTcRTHP79nm9ujM+fccqFGI5viRRpjJgkJ3hiCENVN/QMWdBHUVRdBNwX9ARHd2FVEWFLRjaS9XPmSC/EFTNOWc3Pi48y9PHNzz68L7UXTCvreHM65+PA953uElFLyHzLvHMwsJrnzfJqFeAan3cKV9mr8XseeAOXX5vqjSS53jdF+tIz1nIFAMDCzwpvJ5b87+LSYYHw+gcWkEAwluXnOR2Q1R+9YjJ7BKJG4zoXmqr0ddL3+QnV5EeUOK821LsJammcjEeZiafJScrd3bm8H6zkDd4mVztZKAK49/Mj8is4Z/35GPq9R5VJ5GYztDtB1HT1vovGQSiqVAqDugI3I6jpP3i9x9VQVfu8+1N/OvbWCqqqoBSa6h1fQNA1N0xiYTWJSBCZF8HgwSjQapbRQ2RUg5NYj3O6ZochmYkFL03S4mImIzjFvCf2xS5gtCRYXWvBUvKXjyEVeTN/DXuDgxsnuzSMK4HTAw1Q0hZba4NXEKp0tbpq9VkxCwTAETrsVwxBIBIYhMPI7YqyrtONQzSznJXrO4H5/GJ9LUGg0YFYydJxoYnwpj1s9SEN5KzZz4fYYAW6dr+VsowdFgamlPE/Hs8SzQZYzg0S+zjIc6iOWDDEc6uND+N12B9/VVu+mrd79o38wFCCdTeBSK6hxBii1eahxBlAtRbsDdmoiHGRNj1NZ7GM0NISvzM9oaIhiqwOO/wMgl4FsRpLf2KxGXpLNSLLInzH+CWBIA6RECIGUEiEUpDRACBSh8A3pXfGWdXfMgAAAAABJRU5ErkJggg==",
+      "default_prompt": "# system:\nAs an AI assistant, your task involves interpreting images and responding to questions about the image.\nRemember to provide accurate answers based on the information present in the image.\n\n# user:\nCan you tell me what the image depicts?\n![image]({{image_input}})\n",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection"
+          ],
+          "ui_hints": {
+            "index": 0
+          }
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "allow_manual_entry": true,
+          "is_multi_select": false,
+          "ui_hints": {
+            "index": 1
+          }
+        },
+        "temperature": {
+          "default": 1,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 2
+          }
+        },
+        "top_p": {
+          "default": 1,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 3
+          }
+        },
+        "max_tokens": {
+          "default": 512,
+          "type": [
+            "int"
+          ],
+          "ui_hints": {
+            "index": 4
+          }
+        },
+        "stop": {
+          "default": "",
+          "type": [
+            "list"
+          ],
+          "ui_hints": {
+            "index": 5
+          }
+        },
+        "presence_penalty": {
+          "default": 0,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 6
+          }
+        },
+        "frequency_penalty": {
+          "default": 0,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 7
+          }
+        },
+        "seed": {
+          "default": "",
+          "type": [
+            "int"
+          ],
+          "ui_hints": {
+            "index": 8
+          }
+        },
+        "detail": {
+          "enum": [
+            "low",
+            "high",
+            "auto"
+          ],
+          "type": [
+            "string"
+          ],
+          "default": "auto",
+          "ui_hints": {
+            "index": 9
+          }
+        }
+      },
+      "package": "custom_aoai_gpt4mm",
+      "package_version": "0.0.5"
+    },
+    "promptflow.tools.aoai_gpt4v.AzureOpenAI.chat": {
+      "name": "Azure OpenAI GPT-4 Turbo with Vision",
+      "description": "Use Azure OpenAI GPT-4 Turbo with Vision to leverage AOAI vision ability.",
+      "type": "custom_llm",
+      "module": "promptflow.tools.aoai_gpt4v",
+      "class_name": "AzureOpenAI",
+      "function": "chat",
+      "tool_state": "preview",
+      "icon": {
+        "light": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAx0lEQVR4nJWSwQ2CQBBFX0jAcjgqXUgPJNiIsQQrIVCIFy8GC6ABDcGDX7Mus9n1Xz7zZ+fPsLPwH4bUg0dD2wMPcbR48Uxq4AKU4iSTDwZ1LhWXipN/B3V0J6hjBTvgLHZNonewBXrgDpzEvXSIjN0BE3AACmmF4kl5F6tNzcCoLpW0SvGovFvsb4oZ2AANcAOu4ka6axCcINN3rg654sww+CYsPD0OwjcozFNh/Qcd78tqVbCIW+n+Fky472Bh/Q6SYb1EEy8tDzd+9IsVPAAAAABJRU5ErkJggg==",
+        "dark": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2ElEQVR4nJXSzW3CQBAF4DUSTjk+Al1AD0ikESslpBIEheRALhEpgAYSWV8OGUublf/yLuP3PPNmdndS+gdwXZrYDmh7fGE/W+wXbaYd8IYm4rxJPnZ0boI3wZcdJxs/n+AwV7DFK7aFyfQdYIMLPvES8YJNf5yp4jMeeEYdWh38gXOR35YGHe5xabvQdsHv6PLi8qV6gycc8YH3iMfQu6Lh4ASr+F5Hh3XwVWnQYzUkVlX1nccplAb1SN6Y/sfgmlK64VS8wimldIv/0yj2QLkHizG0iWP4AVAfQ34DVQONAAAAAElFTkSuQmCC"
+      },
+      "default_prompt": "# system:\nAs an AI assistant, your task involves interpreting images and responding to questions about the image.\nRemember to provide accurate answers based on the information present in the image.\n\n# user:\nCan you tell me what the image depicts?\n![image]({{image_input}})\n",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection"
+          ],
+          "ui_hints": {
+            "index": 0
+          }
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "dynamic_list": {
+            "func_path": "promptflow.tools.aoai_gpt4v.list_deployment_names",
+            "func_kwargs": [
+              {
+                "name": "connection",
+                "type": [
+                  "AzureOpenAIConnection"
+                ],
+                "reference": "${inputs.connection}"
+              }
+            ]
+          },
+          "allow_manual_entry": true,
+          "is_multi_select": false,
+          "ui_hints": {
+            "index": 1
+          }
+        },
+        "temperature": {
+          "default": 1,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 2
+          }
+        },
+        "top_p": {
+          "default": 1,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 3
+          }
+        },
+        "max_tokens": {
+          "default": 512,
+          "type": [
+            "int"
+          ],
+          "ui_hints": {
+            "index": 4
+          }
+        },
+        "stop": {
+          "default": "",
+          "type": [
+            "list"
+          ],
+          "ui_hints": {
+            "index": 5
+          }
+        },
+        "presence_penalty": {
+          "default": 0,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 6
+          }
+        },
+        "frequency_penalty": {
+          "default": 0,
+          "type": [
+            "double"
+          ],
+          "ui_hints": {
+            "index": 7
+          }
+        },
+        "seed": {
+          "default": "",
+          "type": [
+            "int"
+          ],
+          "ui_hints": {
+            "index": 8
+          }
+        }
+      },
+      "package": "promptflow-tools",
+      "package_version": "1.4.0"
+    }
+  },
+  "code": {
+    "chat.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "chat.jinja2"
+    },
+    "chat_with_vision.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "image_input": {
+          "type": [
+            "image"
+          ]
+        }
+      },
+      "source": "chat_with_vision.jinja2"
+    }
+  }
+}

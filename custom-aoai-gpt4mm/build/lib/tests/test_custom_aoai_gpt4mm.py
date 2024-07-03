@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch
 
 from promptflow.connections import AzureOpenAIConnection
-from custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm import custom_aoai_gpt4mm, list_deployment_names
+from custom_aoai_gpt4mm.tools.custom_aoai_gpt4mm import list_deployment_names
 from tests.utils import Deployment
 
 

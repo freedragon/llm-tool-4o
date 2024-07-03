@@ -1,0 +1,32 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    is_chat_history: true
+    default: []
+    is_chat_input: false
+  question:
+    type: string
+    is_chat_input: true
+    default: 아늘이 파란 이유는?
+    is_chat_history: false
+  image:
+    type: image
+    default: ../../../../data/GPT-4 test image.png
+outputs:
+  answer:
+    type: string
+    reference: ${chat_with_vision.output}
+nodes:
+- name: chat_with_vision
+  type: custom_llm
+  source:
+    type: package_with_prompt
+    tool: promptflow.tools.aoai_gpt4v.AzureOpenAI.chat
+    path: chat_with_vision.jinja2
+  inputs:
+    connection: gpt-4o
+    deployment_name: gpt-4o
+    image_input: ${inputs.image}

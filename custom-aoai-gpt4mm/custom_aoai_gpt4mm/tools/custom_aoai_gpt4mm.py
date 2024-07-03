@@ -4,9 +4,14 @@
 # promptflow/src/promptflow-tools/promptflow/tools/aoai_gpt4v.py
 from typing import List, Dict
 
-from promptflow.tools.common import handle_openai_error, build_messages, \
+# Following imports and functions are defined in the lastest promptflow source repo. But, it's not available in the promptflow-tools==1.4.0.
+# It must be checked with dependencies and/or versions of tools packages on Azure AI Studio.
+# from promptflow.tools.common import handle_openai_error, build_messages, \
+#     preprocess_template_string, find_referenced_image_set, convert_to_chat_list, init_azure_openai_client, \
+#     post_process_chat_api_response, list_deployment_connections, build_deployment_dict
+from promptflow.tools.common import render_jinja_template, handle_openai_error, parse_chat, \
     preprocess_template_string, find_referenced_image_set, convert_to_chat_list, init_azure_openai_client, \
-    post_process_chat_api_response, list_deployment_connections, build_deployment_dict \
+    post_process_chat_api_response, list_deployment_connections, build_deployment_dict
 
 from promptflow._internal import ToolProvider, tool
 from promptflow.connections import AzureOpenAIConnection
@@ -61,7 +66,7 @@ class AzureOpenAIMM(ToolProvider):
         presence_penalty: float = 0,
         frequency_penalty: float = 0,
         seed: int = None,
-        detail: str = 'auto',
+        # detail: str = 'auto',
         **kwargs,
     ) -> str:
         prompt = preprocess_template_string(prompt)
@@ -69,8 +74,11 @@ class AzureOpenAIMM(ToolProvider):
 
         # convert list type into ChatInputList type
         converted_kwargs = convert_to_chat_list(kwargs)
-        messages = build_messages(prompt=prompt, images=list(referenced_images), detail=detail, **converted_kwargs)
-
+        # Code fragments from promptflow-tools > 1.4.0
+        # messages = build_messages(prompt=prompt, images=list(referenced_images), detail=detail, **converted_kwargs)
+        # code fragments from promptflow-tools==1.4.0
+        chat_str = render_jinja_template(prompt, trim_blocks=True, keep_trailing_newline=True, **converted_kwargs)
+        messages = parse_chat(chat_str, list(referenced_images))
         headers = {
             "Content-Type": "application/json",
             "ms-azure-ai-promptflow-called-from": "aoai-gpt4v-tool"
@@ -95,8 +103,10 @@ class AzureOpenAIMM(ToolProvider):
         if seed is not None:
             params["seed"] = seed
 
+        # completion = self._client.chat.completions.create(**params)
+        # return post_process_chat_api_response(completion, stream)
         completion = self._client.chat.completions.create(**params)
-        return post_process_chat_api_response(completion, stream)
+        return post_process_chat_api_response(completion, stream, None)
 
 
 # @tool

@@ -1,4 +1,4 @@
 Metadata-Version: 2.1
-Name: custom-aoai-gpt4mm
-Version: 0.0.1
+Name: custom_aoai_gpt4mm
+Version: 0.0.5
 Summary: Custom Azure OpenAI Multi-Model support LLM tool.
