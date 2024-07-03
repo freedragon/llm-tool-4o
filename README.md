@@ -25,11 +25,13 @@ pip install pytest pytest-mock
 pip install twine
 ```
 3. 툴의 제작에 필요한 파일들이 저장될 폴더를 만들고 해당 폴더로 디렉토리를 변경 합니다.
+
 4. 아래 명령을 수행해서 promptflow의 소스 코드를 다운로드 합니다. 
 ```bash
 git clone https://github.com/microsoft/promptflow.git
 ```
-[!WARNING] 여기서 한가지 문제가, AI Studio, 파이썬의 모듈과 깃헙에 저장된 코드들의 버젼이 완전히 일치하지 않습는 부분 입니다. 오류의 형태에 따라서 패키지를 다운그레이드 할 수 있습니다.
+> [!WARNING]  
+> 여기서 한가지 문제가, AI Studio, 파이썬의 모듈과 깃헙에 저장된 코드들의 버젼이 완전히 일치하지 않습는 부분 입니다. 오류의 형태에 따라서 패키지를 다운그레이드 할 수 있습니다.
 
 5. 소스코드가 같은 폴더에 다운로드 했다고 가정하고, 다음 명령을 수행하면 Took을 만들 수 있는 프로젝트 템플릿이 만들어 집니다. 만일 폴더에 destionation 폴더 (아래에서 hello-world-proj)와 같은 이름의 폴더가 있으면 오류가 발생 합니다.
 ```bash
@@ -57,16 +59,33 @@ hello-world-proj/
 │    
 └── setup.py  
 ```
+
 7. 코드의 유닛테스트 가 필요한 경우 ```test_hello_world_tool.py```을 업데이트 하고 아래 명령을 수행 합니다. (프로젝트 폴더에서 실행 되어야 합니다.
 ```bash
 pytest tests
 ```
+
 8. 배포가 준비 된 상태에서 아래 명령을 프로젝트 폴더에서 수행 하면 ```dist``` 폴더가 생성 되고, 휠(WHL) 파일과 Tar.gz파일이 생성 됩니다. 패키지의 업로드는 별도의 명령을 사용 합니다.
 ```bash
 python setup.py sdist bdist_wheel
 ```
+
 9. 실제 PyPi에 dist 폴더의 내용을 업로드 해 볼 수 도 있겠습니다만, 우선 테스트를 위해서 test.pypi.org에 계정을 만들고 업로드 및 설치 테스트를 해 볼 수 있습니다. 사용법과 구조는 거의 동일 하지만, 공식적인 사이트와 테스트 사이트가 제종 됩니다.
 패키지 업로드 명령과 다음과 같습니다. 위에서 설치한 twine 명령을 사용 합니다.
+
+> [!NOTE]  
+> 무료 입니다만, www.pypi.org 및 test.pypi.org에 계정 생성, 계정 인증 (이메일), 키 백업 및 다중 인증이 끝나야 API Key를 만들고 실제 패키지 업로드를 실행할 수 있습니다.
+> API Key들은 홈 폴더 (또는 패키지 폴더) 아래 .pypirc 파일에 저장 되어야 합니다.
+> 
+> ```ini
+> [pypi]
+>   username = __token__
+>   password = pypi-Ag....
+> [testpypi]
+>   username = __token__
+>   password = pypi-AgENdG...
+> ```
+
 ```bash
 twine upload --repository testpypi dist/* 
 ```
@@ -115,11 +134,11 @@ AI Studio (또는 AzureML Studio)에서 플로우를 실행하는 환경이 컨�
 아래의 두개 문서의 내용을 참고 하세요. 첫번째 문서는: 
 
 1. 개별 요구 조건에 맞는 이미지를 제작하는 방법에 대해서, 
-> [컴퓨팅 세션에 대한 기본 이미지 사용자 지정](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/how-to-customize-session-base-image?view=azureml-api-2)
+> [컴퓨팅 세션에 대한 기본 이미지 사용자 지정](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/how-to-customize-session-base-image?view=azureml-api-2)  
 > [Customize base image for compute session](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-customize-session-base-image?view=azureml-api-2)
 
 2. 두번째는 이들 이미지를 실행 되는 컴퓨팅 환경의 기본 이미지로 설정 하는 방법에 대해서 설명하고 있습니다.
-> [컴퓨팅 세션의 기본 이미지 변경](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/how-to-manage-compute-session?view=azureml-api-2&tabs=cli#change-the-base-image-for-compute-session)
+> [컴퓨팅 세션의 기본 이미지 변경](https://learn.microsoft.com/ko-kr/azure/machine-learning/prompt-flow/how-to-manage-compute-session?view=azureml-api-2&tabs=cli#change-the-base-image-for-compute-session)  
 > [Change the base image for compute session](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-manage-compute-session?view=azureml-api-2&tabs=cli#change-the-base-image-for-compute-session)
 
 
