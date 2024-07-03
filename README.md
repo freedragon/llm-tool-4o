@@ -1,9 +1,8 @@
 # llm-tool-4o
 AI Studio PromptFlow custom tool sample
 
-```bash
-python promptflow/scripts/tool/generate_tool_package_template.py --destination my-vision-llm --package-name my-vision-llm --tool-name my-vision-llm --function-name my-vision-tool
-```
+> [!NOTE]  
+> 현재 까지 확인 해 본 바로는 패키지의 설치는 새로 만들어지는 플로우에만 가능하며, 만들어진 기존 프로젝트에서는 적용이 되지 않는 것으로 보입니다.
 
 * Promptflow에서 사용할 수 있는  Custom Tool을 제작하는데 필요한 정보를 정리한 리포 입니다. Azure OpenAI GPT-4V Preview툴을 변경한 커스텀 툴의 소스 코드는 아래 URL을 참고 하세요. (리포 아래 서브 폴더)  
     https://github.com/freedragon/llm-tool-4o/tree/master/custom-aoai-gpt4mm 
@@ -169,3 +168,8 @@ AI Studio (또는 AzureML Studio)에서 플로우를 실행하는 환경이 컨�
 [ChatWithPdf sample document:](https://github.com/microsoft/promptflow/blob/main/examples/tutorials/e2e-development/chat-with-pdf.md)
 
 https://github.com/microsoft/promptflow/tree/main/examples/tools/tool-package-quickstart/my_tool_package
+
+```bash
+python promptflow/scripts/tool/generate_tool_package_template.py --destination my-vision-llm --package-name my-vision-llm --tool-name my-vision-llm --function-name my-vision-tool
+```
+
